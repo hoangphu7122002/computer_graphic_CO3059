@@ -73,6 +73,4 @@ void Cylinder::createShape()
 		face[idx].vert[2].vertIndex = i + 1 + nSegments;
 		idx++;
 	}
-
-
 }
