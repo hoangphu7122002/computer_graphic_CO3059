@@ -4,9 +4,9 @@ SRC_DIR = C:\Users\LENOVO\OneDrive\Desktop\testDHMT
 all: main
 		
 assignment:
-	g++ assignment_NDHP.cpp -o run -lfreeglut -lglu32 -lopengl32
+	g++ assignment-2010514.cpp -o run -lfreeglut -lglu32 -lopengl32
 	./run
-	del run.exe
+	del -f run.exe
 		
 main: $(OBJS)
 	g++ -o main $(OBJS) -lfreeglut -lglu32 -lopengl32
