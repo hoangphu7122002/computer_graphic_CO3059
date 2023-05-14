@@ -58,6 +58,7 @@ void Shape1::creatShape() {
     face[idx].vert[0].vertIndex = 1 + 2 * nSegment;
     face[idx].vert[3].vertIndex = 1 + 3 * nSegment;
     face[idx].vert[2].vertIndex = numVerts - 4;
+    face[idx].flag = true;
     idx++;
     
     //mat chu nhat ngoai cung phai
@@ -67,6 +68,7 @@ void Shape1::creatShape() {
     face[idx].vert[1].vertIndex = 3 * nSegment;
     face[idx].vert[2].vertIndex = 4 * nSegment;
     face[idx].vert[3].vertIndex = numVerts - 5;
+    face[idx].flag = true;
     idx++;
     
     //mat tam giac tren trai
@@ -75,6 +77,7 @@ void Shape1::creatShape() {
     face[idx].vert[0].vertIndex = numVerts-4;
     face[idx].vert[2].vertIndex = 1 + 3 * nSegment;
     face[idx].vert[1].vertIndex = 1 + 5 * nSegment;
+    face[idx].flag = true;
     idx++;
     
     //mat tam giac tren phai
@@ -83,6 +86,7 @@ void Shape1::creatShape() {
     face[idx].vert[0].vertIndex = numVerts-5;
     face[idx].vert[1].vertIndex = 4 * nSegment;
     face[idx].vert[2].vertIndex = 6 * nSegment;
+    face[idx].flag = true;
     idx++;
     
     //mat hinh chu nhat truoc trai
@@ -92,6 +96,7 @@ void Shape1::creatShape() {
     face[idx].vert[0].vertIndex = numVerts - 4;
     face[idx].vert[3].vertIndex = 1 + 5 * nSegment;
     face[idx].vert[2].vertIndex = 1 + 4 * nSegment;
+    face[idx].flag = true;
     idx++;
     
     //mat hinh chu nhat truoc phai
@@ -101,6 +106,7 @@ void Shape1::creatShape() {
     face[idx].vert[1].vertIndex = numVerts - 5;
     face[idx].vert[2].vertIndex = 6 * nSegment;
     face[idx].vert[3].vertIndex = 5 * nSegment;
+    face[idx].flag = true;
     idx++;
     
     //mat tam giac huong len trai
@@ -109,6 +115,7 @@ void Shape1::creatShape() {
     face[idx].vert[0].vertIndex = numVerts-2;
     face[idx].vert[2].vertIndex = 1 + 4 * nSegment;
     face[idx].vert[1].vertIndex = 1 + 1 * nSegment;
+    face[idx].flag = true;
     idx++;
     
     //mat tam giac huong len phai
@@ -117,6 +124,7 @@ void Shape1::creatShape() {
     face[idx].vert[0].vertIndex = numVerts-3;
     face[idx].vert[1].vertIndex = 5 * nSegment;
     face[idx].vert[2].vertIndex = 2 * nSegment;
+    face[idx].flag = true;
     idx++;
     
     //mat chu nhat ngang ria ngoai trai
@@ -126,6 +134,7 @@ void Shape1::creatShape() {
     face[idx].vert[0].vertIndex = 0;
     face[idx].vert[3].vertIndex = numVerts - 2;
     face[idx].vert[2].vertIndex = 1 + 1 * nSegment;
+    face[idx].flag = true;
     idx++;
     
     //mat chu nhat ngang ria ngoai phai
@@ -135,6 +144,7 @@ void Shape1::creatShape() {
     face[idx].vert[1].vertIndex = numVerts - 1;
     face[idx].vert[2].vertIndex = numVerts - 3;
     face[idx].vert[3].vertIndex = 2 * nSegment;
+    face[idx].flag = true;
     idx++;
     
     //mat day I1_R(0) va I2_R(0)

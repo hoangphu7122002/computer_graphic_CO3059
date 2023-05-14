@@ -13,10 +13,12 @@ public:
 	int	nVerts;
 	VertexID* vert;
 	Vector3 norm;
+	bool flag = false;
 	Face()
 	{
 		nVerts = 0;
 		vert = NULL;
+		flag = false;
 	}
 	~Face()
 	{
@@ -73,7 +75,7 @@ public:
 	void DrawWireframe();
 	void DrawColor(int color);
 	void calculateNorm();
-	void DrawNorm();
+	void DrawNorm(bool flag, float ambient_default[4],float diffuse_default[4], float specular_default[4], float shine_default, float ambient[4],float diffuse[4], float specular[4], float shine);
 	// void createShape();
 };
 

@@ -75,13 +75,33 @@ void Mesh::DrawColor(int color)
 	}
 }
 
-void Mesh::DrawNorm() {
+void Mesh::DrawNorm(bool flag, float ambient_default[4],float diffuse_default[4], float specular_default[4], float shine_default, float ambient[4],float diffuse[4], float specular[4], float shine) {
 	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 	
 	for (int f = 0; f < numFaces; f++)
 	{
 		glBegin(GL_POLYGON);
 		glColor3f(0,0,0);
+		if (flag == false) {
+			glMaterialfv(GL_FRONT, GL_AMBIENT, ambient_default);
+			glMaterialfv(GL_FRONT, GL_DIFFUSE, diffuse_default);
+			glMaterialfv(GL_FRONT, GL_SPECULAR, specular_default);
+			glMaterialf(GL_FRONT, GL_SHININESS, shine_default);
+		}
+		else {
+			if (face[f].flag == true) {
+				glMaterialfv(GL_FRONT, GL_AMBIENT, ambient);
+				glMaterialfv(GL_FRONT, GL_DIFFUSE, diffuse);
+				glMaterialfv(GL_FRONT, GL_SPECULAR, specular);
+				glMaterialf(GL_FRONT, GL_SHININESS, shine);	
+			}
+			else {
+				glMaterialfv(GL_FRONT, GL_AMBIENT, ambient_default);
+				glMaterialfv(GL_FRONT, GL_DIFFUSE, diffuse_default);
+				glMaterialfv(GL_FRONT, GL_SPECULAR, specular_default);
+				glMaterialf(GL_FRONT, GL_SHININESS, shine_default);			
+			}
+		}
 		for (int v = 0; v < face[f].nVerts; v++)
 		{
 			int		iv = face[f].vert[v].vertIndex;

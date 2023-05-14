@@ -17,6 +17,11 @@ float util_ambient[4];
 float util_diffuse[4];
 float util_specular[4];
 float shine = 12.8f;
+
+float ambient_default[4] ={0.25f, 0.25f, 0.25f, 1.0f  };
+float diffuse_default[4] ={0.4f, 0.4f, 0.4f, 1.0f };
+float specular_default[4] ={0.774597f, 0.774597f, 0.774597f, 1.0f };
+float shine_default = 76.8f;
 //Shape1 parameter
 // int nSegment, float I1_R, float I2_R, float O_R, float I_fAngle, float O_fAngle, float lHeight, float hHeight, float dTam
 // 32,1.5,3,1.5,PI/3,PI/3 + PI/12,0.5,1.2,1
@@ -267,12 +272,11 @@ void drawChainShape1() {
     float mat_diffuse[] ={0.396f, 0.74151f, 0.69102f, 0.8f };
     float mat_specular[] ={0.297254f, 0.30829f, 0.306678f, 0.8f };
     
-    setupMauNorm(mat_ambient, mat_diffuse, mat_specular , 12.8);
     for (int i = 0; i < 6; ++i) {
         glPushMatrix();
         glRotatef(60 * i,0,1,0);
         glTranslated(0.4,0.5,0);
-        if (drawToggle == false) shape1[i].DrawNorm();
+        if (drawToggle == false) shape1[i].DrawNorm(drawFlag,mat_ambient, mat_diffuse, mat_specular , 12.8, ambient_default, diffuse_default, specular_default, shine_default);
         else shape1[i].DrawWireframe();
         // shape1[i].vien(0.5);
         glPopMatrix();
@@ -281,9 +285,8 @@ void drawChainShape1() {
     float mat_ambient1[] ={ 0.2295f, 0.08825f, 0.0275f, 1.0f };
     float mat_diffuse1[] ={0.5508f, 0.2118f, 0.066f, 1.0f };
     float mat_specular1[] ={0.580594f, 0.223257f, 0.0695701f, 1.0f };
-    setupMauNorm(mat_ambient1, mat_diffuse1, mat_specular1 , 51.2f);
     
-    if (drawToggle == false) GiaDo.DrawNorm();
+    if (drawToggle == false) GiaDo.DrawNorm(drawFlag,mat_ambient1, mat_diffuse1, mat_specular1 , 12.8, ambient_default, diffuse_default, specular_default, shine_default);
     else GiaDo.DrawWireframe();
 }
 
@@ -296,19 +299,19 @@ void drawTayQuay() {
     glPushMatrix();
     glTranslated(-0.9,0.5,0);
     
-    if (drawToggle == false) HinhTru.DrawNorm();
+    if (drawToggle == false) HinhTru.DrawNorm(drawFlag,mat_ambient, mat_diffuse, mat_specular , 12.8, ambient_default, diffuse_default, specular_default, shine_default);
     else HinhTru.DrawWireframe();
     glPopMatrix(); 
     
     glPushMatrix();
     glTranslated(0,1,0);
-    if (drawToggle == false) shape2.DrawNorm();
+    if (drawToggle == false) shape2.DrawNorm(drawFlag,mat_ambient, mat_diffuse, mat_specular , 12.8, ambient_default, diffuse_default, specular_default, shine_default);
     else shape2.DrawWireframe();
     glPopMatrix();
     
     glPushMatrix();
     glTranslated(0,1,0);
-    if (drawToggle == false) thanhNgang.DrawNorm();
+    if (drawToggle == false) thanhNgang.DrawNorm(drawFlag,mat_ambient, mat_diffuse, mat_specular , 12.8, ambient_default, diffuse_default, specular_default, shine_default);
     else thanhNgang.DrawWireframe();
     glPopMatrix();
 }
