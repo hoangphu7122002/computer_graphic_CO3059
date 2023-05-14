@@ -316,7 +316,17 @@ void drawTayQuay() {
     glPopMatrix();
 }
 
-
+void myReshape(int w, int h) {
+    float factor = 2;
+    glViewport(0,0,w,h);
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    // if (w <= h) glOrtho(-factor,factor,-factor*h/w,factor*h/w,-10,10);
+    // else glOrtho(-factor*w/h,factor*w/h,-factor,factor,-10,10);
+    if (w <= h) gluPerspective(38.7, (double)h / w, 1, 1000);
+    else gluPerspective(38.7, (double)w / h, 1, 1000);
+    glMatrixMode(GL_MODELVIEW);
+}
 
 void lightSetup() {
     float ambient[4] = { 0.8f, 0.8f, 0.8f, 1.0f };
@@ -394,14 +404,27 @@ void mySpecialFunc(int key, int x, int y) {
 
 
 int main(int argc,char* argv[]) {
+    cout << "1     :  Quay nguoc chieu kim dong ho" << endl;
+    cout << "2     :  Quay cung chieu kim dong ho" << endl;
+    cout << "3     :  Bat/tat che do to mau nang cao" << endl;
+    cout << "V, v  :  Chuyen doi giua 2 che do nhin" << endl;
+    cout << "W, w  :  Chuyen doi qua lai giua che do khung day va to mau" << endl;
+    cout << "+     : Tang khoang cach camera" << endl;
+    cout << "-     : Giam khoang cach camera" << endl;
+    cout << "up arrow  : Tang chieu cao camera" << endl;
+    cout << "down arrow: Giam chieu cao camera" << endl;
+    cout << "<-        : Quay camera theo chieu kim dong ho" << endl;
+    cout << "->        : Quay camera nguoc chieu kim dong ho" << endl;
+    
     glutInit(&argc,argv);
     glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB | GLUT_DEPTH);
     glutInitWindowSize(500,500);
     glutInitWindowPosition(0,0);
-    glutCreateWindow("tet Mesh");
+    glutCreateWindow("Nguyen Dac Hoang Phu - 2010514");
     glutDisplayFunc(myDisplay);
     glutSpecialFunc(mySpecialFunc);
     glutKeyboardFunc(keyNormal);
+    glutReshapeFunc(myReshape);
     for (int i = 0; i < 6; ++i) shape1.push_back(Shape1(32,1.5,3,1.5,M_PI/3,M_PI/3 + M_PI/12,0.5,1.2,1));
     for (int i = 0; i < 6; ++i) shape1[i].creatShape();
     GiaDo.createShape();

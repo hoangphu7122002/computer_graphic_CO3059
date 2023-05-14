@@ -94,6 +94,7 @@ void Shape2::creatShape() {
         face[idx].vert[1].vertIndex = i + 2;
         face[idx].vert[2].vertIndex = i + 2 + nSegment;
         face[idx].vert[3].vertIndex = i + 1 + nSegment;
+        face[idx].flag = true;
         idx++;
     }
     
@@ -132,6 +133,7 @@ void Shape2::creatShape() {
         face[idx].vert[1].vertIndex = i + 1 + nSegment;
         face[idx].vert[2].vertIndex = i + 2  + nSegment;
         face[idx].vert[3].vertIndex = i + 2;
+        face[idx].flag = true;
         idx++;
     }
     
